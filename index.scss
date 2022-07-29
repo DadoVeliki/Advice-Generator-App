@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap');
+
+$light-cyan:hsl(193, 38%, 86%);
+$neon-green:hsl(150, 100%, 66%);
+$grayish-blue:hsl(217, 19%, 38%);
+$dark-grayish-blue:hsl(217, 19%, 24%);
+$dark-blue:hsl(218, 23%, 16%);
+$quote-font-size:28px;
+$font-stranice:'Manrope', sans-serif;
+
+/*DESKTOP DESIGN
+*/
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-stranice;
+}
+@mixin flexbox($direction) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+body{
+    @include flexbox(column);
+    min-height: 100vh;
+    background-color: $dark-blue;
+}
+.container,.divek{
+    @include flexbox(column);
+    background-color: $dark-grayish-blue;
+    width:35rem;
+    height: 40vh;
+    border-radius: 15px;
+
+    p{
+        color:$neon-green;
+        letter-spacing: 0.3rem;
+        margin-top: 10%;
+    }
+    h1{
+        color:$light-cyan;
+        font-size: $quote-font-size;
+        margin: 5%;
+        text-align: center;
+    }
+}
+.container{
+    box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+}
+.kockica{
+    @include flexbox(column);
+    background-color: $neon-green;
+    border-radius: 50%;
+    width:13%;
+    height: 35%;
+    position: relative;
+    top:8%;
+    &:hover{
+        cursor: pointer;
+        box-shadow: 0px 0px 20px 10px $neon-green;
+    }
+}
+/*MOBILE DESIGN
+*/
+@media screen and (max-width:375px){
+    .container,.divek{
+        width:90%;
+        h1{
+            font-size: 20px;
+        }
+        img{
+            width:80%;
+        }
+        .kockica{
+            width:20%;
+        }
+    }
+
+}
